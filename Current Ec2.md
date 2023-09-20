@@ -146,4 +146,5 @@ FileETag None
 
 After you done config the file, `Ctrl+o` to save and press `enter` to confirm, then `Ctrl+x` to escape from that file
 
+
 chmod 644 /path/to/wp-config.php
