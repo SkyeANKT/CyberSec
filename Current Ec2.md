@@ -51,7 +51,7 @@ sudo wget https://wordpress.org/latest.tar.gz
 <b>DDoS</b> ----> iptables(Network Level) + mod_evasive(Application Level)
 
 ### Mod Evasive
-[Reference: https://www.atlantic.net/vps-hosting/how-to-install-and-configure-modevasive-with-apache-on-ubuntu-18-04/]
+[Reference](https://www.atlantic.net/vps-hosting/how-to-install-and-configure-modevasive-with-apache-on-ubuntu-18-04/)
 - To install mod_evasive, enter a below command
 ```
 sudo apt install libapache2-mod-evasive
@@ -127,6 +127,25 @@ sudo tail -n 500 /var/log/apache2/access.log
 ```
 | grep -Ev '49.230.144.118|CleanTalk|Cleantalk-Helper|UptimeRobot|internal dummy connection|180.183.8.203|180.183.8.203|52.23.162.86|1.46.158.50'
 ```
+## Backup
+Ref:
+https://www.cyberciti.biz/faq/how-to-create-tar-gz-file-in-linux-using-command-line/
+### Manual Backup
+- To manually backup the WordPress content we use a following command
+```
+cd ~
+mkdir backup
+tar -zcf ~/backup/backup-$(date +%Y%m%d_%H%M%S).tar.gz -C /var/www/ html
+```
+1. `cd ~` command is used to change our working directory to root directory
+2. `mkdir [directory_name]` is used for create a new directory on our current working directory.
+3. `tar` command is used to compress and extract files to and from an archive. 
+4. `-zcf` by using this flags, it will create a gzip compression file 
+5. `~/backup/backup-$(date +%Y%m%d_%H%M%S).tar.gz` this part help us locate where the destination file should be and how will it be named. In this case we name it `backup` and followed by a date and time that we backup the file. 
+
+### Automate Backup
+
+
 ## Hide Sensitive Sever Information
 - To hide a sensitive server information you need to access the configuration file locates as in below command:
 ```
